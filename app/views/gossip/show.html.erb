@@ -1,6 +1,5 @@
-<!-- <%= @allgossips.times do |i, id|%> -->
-<h1><%= Gossip.find(i+1).anonymous_gossiper %></h1>
-<%= Gossip.find(i+1).title %></br>
-<%= Gossip.find(i+1).content %></br>
-<%= link_to "Editer", "/gossip/#{Gossip.find(i+1).id}/edit" %>
-<!-- <% end %> -->
+<h1>Gossip créé :</h1>
+
+<p> Auteur : <%= Gossip.find(params[:id]).anonymous_gossiper%> </p>
+<p> Titre : <%= Gossip.find(params[:id]).title%> </p>
+<p> Contenu : <%= Gossip.find(params[:id]).content%> </p>

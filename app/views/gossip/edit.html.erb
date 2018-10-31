@@ -2,22 +2,22 @@
 <div class="container mt-5"> <!-- HTML -->
 	<div class="form-group">
 
-  	<form action="/gossip/<%=@params%>" method="patch">
-      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-  	  <div class="form-group">
-  	    <label for="formGroupExampleInput">Ton pseudo</label>
-  	    <input type="text" class="form-control" id="formGroupExampleInput" name="username" value="<%= Gossip.find(@params).anonymous_gossiper %>">
-  	  </div>
-  	  <div class="form-group">
-  	    <label for="exampleFormControlInput1">Titre de ton potin</label>
-  	    <input type="text" class="form-control" id="exampleFormControlInput1" name="title" value="<%= Gossip.find(@params).title %>">
-  	  </div>
-  	  <div class="form-group">
-  		<label for="exampleFormControlTextarea1">Ton potin</label>
-  		<textarea class="form-control" id="exampleFormControlTextarea1" name="content"><%= Gossip.find(@params).content %></textarea>
-  		  </div>
-  		  <button type="submit" class="btn btn-primary">Envoyer</button>
-  	</form>
+		<%= form_for @gossip do |f| %>
+			<div class="form-group">
+				<label for="formGroupExampleInput">Pseudo :</label>
+				<%= f.text_field :anonymous_gossiper, class: "form-control", id: "formGroupExampleInput" %>
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput">Titre :</label>
+				<%= f.text_field :title, class: "form-control", id: "formGroupExampleInput" %>
+			</div>
+			<div class="form-group">
+				<label for="formGroupExampleInput">Ajoute moi du gros gossip :</label>
+				<%= f.text_area :content, class: "form-control" %>
+			</div>
+				<%= f.submit "Update ton Gossip !", class: "btn btn-success" %>
+
+		<% end %>
 
 	</div>
 <hr>
