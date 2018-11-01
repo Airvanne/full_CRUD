@@ -3,5 +3,7 @@ Rails.application.routes.draw do
   get 'gossip/new'
   root 'static_pages#home'
   resources 'gossip'
+  get 'gossip/index/:id', to: 'gossip#index'
+  resources 'registration'
 
 end

@@ -18,16 +18,18 @@ class GossipController < ApplicationController
   end
 
   def index
+     @user_id_connected = params[:id]
+
   end
 
 
   def edit
-    @gossip = Gossip.find(params[:id])
+   @gossip = Gossip.find(params[:id])
   end
 
   def update
     @gossip = Gossip.find(params[:id])
-    @gossip.anonymous_gossiper = params[:gossip][:anonymous_gossiper]
+    @gossip.anonymous_gossiper = params[:gossip][:anonymous_g]
     @gossip.title = params[:gossip][:title]
     @gossip.content = params[:gossip][:content]
     @gossip.save
