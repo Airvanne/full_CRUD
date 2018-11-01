@@ -11,19 +11,18 @@ Cette app te permet de te loger sur l'application, de créer un gossip, de voir 
 
 Procédure
 
-1- Git clone le repo chez toi
+1- `git clone https://github.com/Airvanne/full_CRUD.git`
 
 2- Fais un `bundle install`
 
 3- Fais un `rails db:create`
 
-4 - Fais un `rails db:migrate`
+4- Fais un `rails db:migrate`
 
 5- Fais un `rails db:seed`
 
-6- Lance l'appli sur ton pc avec le fameux `rails s` et à toi la gloire !
+6- Lance `rails s` et sur ton navigateur va sur localhost:3000
 
-7- Connecte toi le meilleur user est name : `a` email : `a` password : `a`
+7- Connecte toi avec le name : `a`, l'email : `a` et le password : `a`
 
-8- tu peux créer tout les gossips que tu veux liker à volonter
 TEAM BZH-MAFIA
