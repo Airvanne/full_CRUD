@@ -32,10 +32,3 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
-
-# <!-- <%= @allgossips.times do |i, id|%> -->
-# <h1><%= Gossip.find(i+1).anonymous_gossiper %></h1>
-# <%= Gossip.find(i+1).title %></br>
-# <%= Gossip.find(i+1).content %></br>
-# <%= link_to "Editer", "/gossip/#{Gossip.find(i+1).id}/edit" %>
-# <!-- <% end %> -->

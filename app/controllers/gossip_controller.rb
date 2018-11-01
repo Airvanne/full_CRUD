@@ -22,8 +22,6 @@ class GossipController < ApplicationController
 
 
   def edit
-    # @params = params[:id]
-    puts 'SAAALUUUUUUTTTT'
     @gossip = Gossip.find(params[:id])
   end
 
