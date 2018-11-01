@@ -32,20 +32,10 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
-# <!--
-#   	<form action="/gossip/<%= @params %>" method="PUT">
-#       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-#   	  <div class="form-group">
-#   	    <label for="formGroupExampleInput">Ton pseudo</label>
-#   	    <input type="text" class="form-control" id="formGroupExampleInput" name="username" value="<%= Gossip.find(@params).anonymous_gossiper %>">
-#   	  </div>
-#   	  <div class="form-group">
-#   	    <label for="exampleFormControlInput1">Titre de ton potin</label>
-#   	    <input type="text" class="form-control" id="exampleFormControlInput1" name="title" value="<%= Gossip.find(@params).title %>">
-#   	  </div>
-#   	  <div class="form-group">
-#   		<label for="exampleFormControlTextarea1">Ton potin</label>
-#   		<textarea class="form-control" id="exampleFormControlTextarea1" name="content"><%= Gossip.find(@params).content %></textarea>
-#   		  </div>
-#   		  <button type="submit" class="btn btn-primary">Envoyer</button>
-#   	</form> -->
+
+# <!-- <%= @allgossips.times do |i, id|%> -->
+# <h1><%= Gossip.find(i+1).anonymous_gossiper %></h1>
+# <%= Gossip.find(i+1).title %></br>
+# <%= Gossip.find(i+1).content %></br>
+# <%= link_to "Editer", "/gossip/#{Gossip.find(i+1).id}/edit" %>
+# <!-- <% end %> -->

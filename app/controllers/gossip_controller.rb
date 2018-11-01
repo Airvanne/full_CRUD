@@ -18,7 +18,6 @@ class GossipController < ApplicationController
   end
 
   def index
-    @allgossips = Gossip.all.count
   end
 
 
@@ -35,6 +34,12 @@ class GossipController < ApplicationController
     @gossip.content = params[:gossip][:content]
     @gossip.save
     redirect_to "/gossip/#{params[:id]}"
+  end
+
+  def destroy
+    @gossip = Gossip.find(params[:id])
+    @gossip.delete
+    redirect_to gossip_index_path
   end
 
 end
