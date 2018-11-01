@@ -1,5 +1,5 @@
 <h1>Gossip créé :</h1>
 
-<p> Auteur : <%= Gossip.find(params[:id]).anonymous_gossiper%> </p>
+<p> Auteur : <%= Gossip.find(params[:id]).user_id%> </p>
 <p> Titre : <%= Gossip.find(params[:id]).title%> </p>
 <p> Contenu : <%= Gossip.find(params[:id]).content%> </p>

@@ -4,7 +4,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Accueil", root_path %></li>
         <li><%= link_to "Index des gossips", gossip_index_path %></li>
-        <li><%= link_to "Nouveau gossip", gossip_new_path %></li>
+        <li><%= link_to "Nouveau gossip", "/gossip/new/#{params["id"]}" %></li>
       </ul>
     </nav>
   </div>

@@ -4,18 +4,19 @@
 
   	<form action="/gossip" method="post">
       <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
-  	  <div class="form-group">
-  	    <label for="formGroupExampleInput">Ton pseudo</label>
-  	    <input type="text" class="form-control" id="formGroupExampleInput" name="username" placeholder="Pseudo">
-  	  </div>
+      <div class="form-group">
+        <label for="exampleFormControlInput1">Ton pseudo</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" name="name" value="<%= User.find(params[:id]).name%>" readonly>
+      </div>
   	  <div class="form-group">
   	    <label for="exampleFormControlInput1">Titre de ton potin</label>
-  	    <input type="text" class="form-control" id="exampleFormControlInput1" name="title" placeholder="Titre">
+  	    <input type="text" class="form-control" id="formGroupExampleInput" name="title" placeholder="Titre">
   	  </div>
   	  <div class="form-group">
   		<label for="exampleFormControlTextarea1">Ton potin</label>
   		<textarea class="form-control" id="exampleFormControlTextarea1" name="content" rows="3"></textarea>
   		  </div>
+        
   		  <button type="submit" class="btn btn-primary">Envoyer</button>
   	</form>
 

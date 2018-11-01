@@ -1,9 +1,28 @@
+
+
 <% Gossip.all.each do |element| %>
 <h1>  <%= User.find(element.user_id).name %></h1>
   <%= element.title %></br>
   <%= element.content %></br>
   <% if element.user_id.to_s == @user_id_connected %>
-   <%= link_to "Editer", edit_gossip_path(element.id) %>
+   <%= link_to "Editer", edit_gossip_path(element.id) %></br>
 
    <% end %>
-  <% end %>
+ <% @like = Like.find_by(gossip_id: element.id, user_id: params[:id]) %>
+    <% if @like != nil %>
+  
+    <%= link_to 'Disliker', @like, method: :delete %>
+   
+   <%end%>
+</p> 
+   <form action="/like/<% params[:id] %>" method="post">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" />
+      <input type="hidden" name="user_id" value="<%= params[:id] %>" />
+      <input type="hidden" name="gossip_id" value="<%= element.id %>" />
+   <button type="submit" class="btn btn-primary">Liker</button>
+   </form>
+
+
+<%end%>
+
+

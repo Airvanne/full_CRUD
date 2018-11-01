@@ -12,6 +12,8 @@ require 'faker'
 users = User.create(name: Faker::Name.first_name, email: Faker::Internet.email, password: Faker::Name.last_name)
 
 end
+users = User.create(name: "a", email: "a", password: "a")
+
 
 10.times do
 gossips = Gossip.create(user_id: Faker::Number.between(1,10), 

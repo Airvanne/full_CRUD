@@ -1,16 +1,18 @@
 class GossipController < ApplicationController
+  attr_accessor :param
   def new
     # @gossip = Gossip.new
+    
   end
 
   def create
-    # gossip = Gossip.create!(params_from_form)
+    
     @gossip = Gossip.new
-    @gossip.anonymous_gossiper = params[:username]
+    @gossip.user_id = User.find_by(name: params[:name]).id
     @gossip.title = params[:title]
     @gossip.content = params[:content]
     @gossip.save
-    redirect_to "/gossip/#{params[:id]}"
+    redirect_to "/gossip/index/#{User.find_by(name: params[:name]).id}"
   end
 
   def show
@@ -24,22 +26,23 @@ class GossipController < ApplicationController
 
 
   def edit
-   @gossip = Gossip.find(params[:id])
+  puts @gossip = Gossip.find(params[:id])
   end
 
   def update
     @gossip = Gossip.find(params[:id])
-    @gossip.anonymous_gossiper = params[:gossip][:anonymous_g]
+   
     @gossip.title = params[:gossip][:title]
     @gossip.content = params[:gossip][:content]
     @gossip.save
-    redirect_to "/gossip/#{params[:id]}"
+    redirect_to "/gossip/index/#{Gossip.find(params[:id]).user_id}"
   end
 
   def destroy
     @gossip = Gossip.find(params[:id])
+    redirect_to "/gossip/index/#{Gossip.find(params[:id]).user_id}"
     @gossip.delete
-    redirect_to gossip_index_path
+    
   end
 
 end
