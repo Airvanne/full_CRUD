@@ -1,12 +1,14 @@
 class GossipController < ApplicationController
   attr_accessor :param
+  protect_from_forgery prepend: true
+skip_before_action :verify_authenticity_token
   def new
     # @gossip = Gossip.new
-    
+
   end
 
   def create
-    
+
     @gossip = Gossip.new
     @gossip.user_id = User.find_by(name: params[:name]).id
     @gossip.title = params[:title]
@@ -31,7 +33,7 @@ class GossipController < ApplicationController
 
   def update
     @gossip = Gossip.find(params[:id])
-   
+
     @gossip.title = params[:gossip][:title]
     @gossip.content = params[:gossip][:content]
     @gossip.save
@@ -42,7 +44,7 @@ class GossipController < ApplicationController
     @gossip = Gossip.find(params[:id])
     redirect_to "/gossip/index/#{Gossip.find(params[:id]).user_id}"
     @gossip.delete
-    
+
   end
 
 end
