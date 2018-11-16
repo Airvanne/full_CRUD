@@ -1,7 +1,10 @@
 class GossipController < ApplicationController
   attr_accessor :param
   protect_from_forgery prepend: true
-skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token
+
+  # POUR CREER LA BASE EN DEVELOPPEMENT :  RAILS_ENV=production rails db:create...
+
   def new
     # @gossip = Gossip.new
 
@@ -14,7 +17,7 @@ skip_before_action :verify_authenticity_token
     @gossip.title = params[:title]
     @gossip.content = params[:content]
     @gossip.save
-    redirect_to "/gossip/index/#{User.find_by(name: params[:name]).id}"
+    redirect_to "/gossip/#{User.find_by(name: params[:name]).id}"
   end
 
   def show
@@ -22,6 +25,7 @@ skip_before_action :verify_authenticity_token
   end
 
   def index
+    puts params
      @user_id_connected = params[:id]
 
   end
@@ -37,7 +41,7 @@ skip_before_action :verify_authenticity_token
     @gossip.title = params[:gossip][:title]
     @gossip.content = params[:gossip][:content]
     @gossip.save
-    redirect_to "/gossip/index/#{Gossip.find(params[:id]).user_id}"
+    redirect_to "/gossip/#{Gossip.find(params[:id]).user_id}"
   end
 
   def destroy
